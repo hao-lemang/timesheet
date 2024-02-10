@@ -1,0 +1,33 @@
+<h1>Timesheets</h1>
+
+<% if (@user) %>
+<%= link_to 'New Timesheet', new_user_time_sheet_path(@user) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Rate</th>
+      <th>Total Time</th>
+      <th>Total Cost</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @time_sheets.each do |time_sheet| %>
+      <tr>
+        <td><%= time_sheet.description %></td>
+        <td><%= number_to_currency(time_sheet.rate) %></td>
+        <td><%= time_sheet.total_time %> minutes</td>
+        <td><%= number_to_currency(time_sheet.total_cost) %></td>
+        <td>
+          <%= link_to 'Show', user_time_sheet_path(@user, time_sheet) %>
+          <%= link_to 'Edit', edit_user_time_sheet_path(@user, time_sheet) %>
+          <%= button_to 'Delete', user_time_sheet_path(@user, time_sheet), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

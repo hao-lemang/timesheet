@@ -1,0 +1,26 @@
+<h1>Timesheet</h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @time_sheet.description %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= number_to_currency(@time_sheet.rate) %>
+</p>
+
+<p>
+  <strong>Total Time:</strong>
+  <%= @time_sheet.total_time %> minutes
+</p>
+
+<p>
+  <strong>Total Cost:</strong>
+  <%= number_to_currency(@time_sheet.total_cost) %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_time_sheet_path(@user,@time_sheet) %> |
+<%= link_to 'Back', user_time_sheets_path %>
+
