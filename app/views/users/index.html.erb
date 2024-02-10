@@ -1,0 +1,23 @@
+<h1>Users</h1>
+
+<%= link_to 'Create New User', new_user_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to 'Create Timesheet for this User', new_user_timesheet_path(user) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
