@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_10_021422) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_10_052121) do
   create_table "line_items", force: :cascade do |t|
-    t.integer "timesheet_id", null: false
+    t.integer "time_sheet_id", null: false
     t.date "date"
-    t.integer "mintes"
+    t.integer "minutes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["timesheet_id"], name: "index_line_items_on_timesheet_id"
+    t.index ["time_sheet_id"], name: "index_line_items_on_time_sheet_id"
   end
 
   create_table "time_sheets", force: :cascade do |t|
@@ -36,6 +36,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_021422) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "line_items", "timesheets"
+  add_foreign_key "line_items", "time_sheets"
   add_foreign_key "time_sheets", "users"
 end
