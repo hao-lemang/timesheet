@@ -21,6 +21,23 @@
     <%= form.number_field :rate, step: 0.01 %>
   </div>
 
+  <h3>Line Items</h3>
+  <%= form.fields_for :line_items do |line_item_form| %>
+    <div class="line_item">
+      <%= line_item_form.label :date %>
+      <%= line_item_form.date_field :date %>
+
+      <%= line_item_form.label :minutes %>
+      <%= line_item_form.number_field :minutes %>
+
+      <%= line_item_form.check_box :_destroy %>
+      <%= line_item_form.label :_destroy, "Remove Line Item" %>
+    </div>
+  <% end %>
+
+  <div id="new_line_item"></div>
+  <%= link_to "Add Line Item", "#", id: "add_line_item", data: {content: form.fields_for(:line_items, LineItem.new, child_index: "NEW_RECORD") { |line_item_form| render("line_item_fields", line_item_form: line_item_form) }} %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

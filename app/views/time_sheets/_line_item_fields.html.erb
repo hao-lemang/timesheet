@@ -1,0 +1,12 @@
+<div class="line_item" data-new-record="<%= line_item_form.object.new_record? %>">
+  <%= line_item_form.label :date %>
+  <%= line_item_form.date_field :date %>
+
+  <%= line_item_form.label :minutes %>
+  <%= line_item_form.number_field :minutes %>
+
+  <% if line_item_form.object.persisted? %>
+    <%= line_item_form.check_box :_destroy %>
+    <%= line_item_form.label :_destroy, "Remove Line Item" %>
+  <% end %>
+</div>
