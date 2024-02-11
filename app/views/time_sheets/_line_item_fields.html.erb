@@ -1,9 +1,9 @@
 <div class="line_item" data-new-record="<%= line_item_form.object.new_record? %>">
-  <%= line_item_form.label :date %>
-  <%= line_item_form.date_field :date %>
+  <%= line_item_form.label :date, class: "form-label" %>
+  <%= line_item_form.date_field :date, class: "form-control" %>
 
-  <%= line_item_form.label :minutes %>
-  <%= line_item_form.number_field :minutes %>
+  <%= line_item_form.label :minutes, class: "form-label" %>
+  <%= line_item_form.number_field :minutes, class: "form-control" %>
 
   <% if line_item_form.object.persisted? %>
     <%= line_item_form.check_box :_destroy %>

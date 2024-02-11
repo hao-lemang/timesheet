@@ -11,35 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :rate %>
-    <%= form.number_field :rate, step: 0.01 %>
+  <div class="mb-3">
+    <%= form.label :rate, class: "form-label" %>
+    <%= form.number_field :rate, step: 1, class: "form-control" %>
   </div>
 
-  <h3>Line Items</h3>
-  <%= form.fields_for :line_items do |line_item_form| %>
-    <div class="line_item">
-      <%= line_item_form.label :date %>
-      <%= line_item_form.date_field :date %>
+  <h5 class="card-title">Line Items</div>
 
-      <%= line_item_form.label :minutes %>
-      <%= line_item_form.number_field :minutes %>
+  <div class="card-body">
+  <div class="mb-3">
+    <%= form.fields_for :line_items do |line_item_form| %>
+      <div class="line-item">
+        <div class="mb-3">
+          <%= line_item_form.label :date, class: "form-label" %>
+          <%= line_item_form.date_field :date, class: "form-control" %>
+        </div>
 
-      <%= line_item_form.check_box :_destroy %>
-      <%= line_item_form.label :_destroy, "Remove Line Item" %>
-    </div>
-  <% end %>
+        <div class="mb-3">
+          <%= line_item_form.label :minutes, class: "form-label" %>
+          <%= line_item_form.number_field :minutes, class: "form-control" %>
+        </div>
 
-  <div id="new_line_item"></div>
-  <%= link_to "Add Line Item", "#", id: "add_line_item", data: {content: form.fields_for(:line_items, LineItem.new, child_index: "NEW_RECORD") { |line_item_form| render("line_item_fields", line_item_form: line_item_form) }} %>
+        <div class="mb-3">
+          <%= line_item_form.check_box :_destroy %>
+          <%= line_item_form.label :_destroy, "Remove Line Item" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <div id="new_line_item"></div>
+    <%= link_to "Add Line Item", "#", id: "add_line_item", class: "card-link mb-3",  data: {content: form.fields_for(:line_items, LineItem.new, child_index: "NEW_RECORD") { |line_item_form| render("line_item_fields", line_item_form: line_item_form) }} %>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Time Sheet", class: "btn btn-primary w-100" %>
   </div>
 <% end %>
 
