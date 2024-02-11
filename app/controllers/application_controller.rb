@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_parent_user!
-    redirect_to user_time_sheets_path(current_user), alert: "You're not authorized to view this page." unless params[:user_id].to_i == current_user.id
+    user_id = params[:user_id] || params[:id]
+    unless user_id.to_i == current_user.id
+      redirect_to user_time_sheets_path(current_user), alert: "You're not authorized to view this page."
+    end
   end
 end
