@@ -1,4 +1,6 @@
 class TimeSheetsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_parent_user!
   before_action :set_time_sheet, only: [:show, :edit, :update, :destroy]
 
   def index

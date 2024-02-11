@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :authorize_parent_user!
   before_action :set_user, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, :authorize_parent_user!, only: [:new, :create]
 
   def index
     @users = User.all
@@ -13,7 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      redirect_to @user
+      session[:user_id] = @user.id
+      redirect_to user_time_sheets_path(@user)
     else
       render :new
     end
@@ -39,6 +43,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :name)
+      params.require(:user).permit(:email, :name, :password, :password_confirmation)
     end
 end

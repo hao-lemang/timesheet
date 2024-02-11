@@ -9,6 +9,6 @@ class TimeSheet < ApplicationRecord
   end
 
   def total_cost
-    total_time * rate
+    (total_time * rate) / 60.0
   end
 end
