@@ -1,8 +1,7 @@
 <%= form_with(model: [@user, @time_sheet], local: true) do |form| %>
   <% if @time_sheet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@time_sheet.errors.count, "error") %> prohibited this timesheet from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@time_sheet.errors.count, "error") %> prohibited this timesheet from being saved:</h4>
       <ul>
       <% @time_sheet.errors.full_messages.each do |message| %>
         <li><%= message %></li>
