@@ -1,13 +1,20 @@
-<footer>
-  <% if logged_in? %>
-    <div class="login-info">
-      Logged in as <%= current_user.email %>
-      <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-primary logout-link" %>
-    </div>
-  <% elsif request.fullpath != login_path %>
-    <%= link_to 'Login', login_path, class: "btn btn-primary login-link" %>
-  <% else %>
-    <%= link_to 'Sign Up', new_user_path %>
-  <% end %>
+<footer class="footer mt-auto py-3 bg-light fixed-bottom">
+  <div class="container">
+    <% if logged_in? %>
+      <span>
+        Logged in as <%= current_user.email %>
+        <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-primary" %>
+      </span>
+    <% elsif request.fullpath != login_path %>
+      <span>
+        Already have an account?
+        <%= link_to 'Login', login_path, class: "btn btn-primary login-link" %>
+      </span>
+    <% else %>
+      <span>
+        Don't have an account?
+        <%= link_to 'Sign Up', new_user_path, class: "btn btn-primary" %>
+      </span>
+    <% end %>
+  </div>
 </footer>
-
