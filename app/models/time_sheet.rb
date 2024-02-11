@@ -4,6 +4,8 @@ class TimeSheet < ApplicationRecord
 
   accepts_nested_attributes_for :line_items, allow_destroy: true, reject_if: :all_blank
 
+  validates :rate, presence: true
+
   def total_time
    line_items.sum(:minutes)
   end

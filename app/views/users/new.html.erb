@@ -8,10 +8,10 @@
         <div class="card-body">
           <%= form_with(model: @user, local:true) do |form| %>
             <% if @user.errors.any? %>
-              <div id="error">
+              <div id="error" class="alert alert-danger" role="alert">
                 <h2><%= pluralize(@user.errors.count, "error") %> prevented this user from being created:</h2>
                 <ul>
-                  <% @user.errors.full_meesages.each do |message| %>
+                  <% @user.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                   <% end %>
                 </ul>

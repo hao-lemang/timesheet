@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_time_sheets_path(@user)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to @user
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

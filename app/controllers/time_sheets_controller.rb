@@ -28,7 +28,7 @@ class TimeSheetsController < ApplicationController
     if @time_sheet.save
       redirect_to user_time_sheets_path(@user, @time_sheet), notice: 'Timesheet was successfully created'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +39,7 @@ class TimeSheetsController < ApplicationController
     if @time_sheet.update(time_sheet_params)
       redirect_to user_time_sheet_path(@user, @time_sheet), notice: 'TimeSheet was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
