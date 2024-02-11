@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Basic sample Timesheet app
 
-Things you may want to cover:
+* Rails 7
 
-* Ruby version
+* Models for user, time sheet, line item
 
-* System dependencies
+* Basic login, signup, profile editing
 
-* Configuration
+* Time sheet create, view, edit and delete - with dynamic line item editing
 
-* Database creation
+* List view of user's timesheets
 
-* Database initialization
+* Styled with bootstrap
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Get up and runing:
+* pre-reqs:  ruby 3.3, node, yarn (basic rails 7 pre-reqs)
+* `bundle install`
+* `rails db:migrate`
+* `rail s`
