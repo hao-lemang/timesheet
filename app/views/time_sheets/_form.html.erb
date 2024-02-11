@@ -51,7 +51,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Create Time Sheet", class: "btn btn-primary w-100" %>
+    <%= form.submit @time_sheet.persisted? ? "Update Time Sheet" : "Create Time Sheet", class: "btn btn-primary w-100" %>
   </div>
 <% end %>
 
