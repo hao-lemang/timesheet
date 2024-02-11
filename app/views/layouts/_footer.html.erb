@@ -3,17 +3,18 @@
     <% if logged_in? %>
       <span>
         Logged in as <%= current_user.email %>
-        <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-primary" %>
+        <%= link_to 'Edit Profile', edit_user_path(@user), class: "btn btn-primary ms-3" %>
+        <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-primary ms-3", form: { style: "display: inline;" } %>
       </span>
     <% elsif request.fullpath != login_path %>
       <span>
         Already have an account?
-        <%= link_to 'Login', login_path, class: "btn btn-primary login-link" %>
+        <%= link_to 'Login', login_path, class: "btn btn-primary login-link ms-3" %>
       </span>
     <% else %>
       <span>
         Don't have an account?
-        <%= link_to 'Sign Up', new_user_path, class: "btn btn-primary" %>
+        <%= link_to 'Sign Up', new_user_path, class: "btn btn-primary ms-3" %>
       </span>
     <% end %>
   </div>
