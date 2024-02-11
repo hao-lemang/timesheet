@@ -11,4 +11,14 @@ class TimeSheet < ApplicationRecord
   def total_cost
     (total_time * rate) / 60.0
   end
+  
+  def date_range
+    if line_items.count == 1
+      return line_items.last.date
+    else
+      min_date = line_items.minimum(:date)
+      max_date = line_items.maximum(:date)
+      return min_date..max_date
+    end
+  end
 end

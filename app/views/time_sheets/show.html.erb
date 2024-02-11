@@ -1,26 +1,44 @@
-<h1>Timesheet</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Timesheet
+        </div>
+        <div class="card-body">
 
-<p>
-  <strong>Description:</strong>
-  <%= @time_sheet.description %>
-</p>
+          <p>
+            <strong>Description:</strong>
+            <%= @time_sheet.description %>
+          </p>
 
-<p>
-  <strong>Rate:</strong>
-  <%= number_to_currency(@time_sheet.rate) %>
-</p>
+          <p>
+            <strong>Dates:</strong>
+            <%= @time_sheet.date_range %>
+          </p>
 
-<p>
-  <strong>Total Time:</strong>
-  <%= @time_sheet.total_time %> minutes
-</p>
+          <p>
+            <strong>Rate:</strong>
+            <%= number_to_currency(@time_sheet.rate) %>
+          </p>
 
-<p>
-  <strong>Total Cost:</strong>
-  <%= number_to_currency(@time_sheet.total_cost) %>
-</p>
+          <p>
+            <strong>Total Time:</strong>
+            <%= @time_sheet.total_time %> minutes
+          </p>
 
-
-<%= link_to 'Edit', edit_user_time_sheet_path(@user,@time_sheet) %> |
-<%= link_to 'Back', user_time_sheets_path %>
-
+          <p>
+            <strong>Total Cost:</strong>
+            <%= number_to_currency(@time_sheet.total_cost) %>
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>
+            <%= link_to 'Edit', edit_user_time_sheet_path(@user,@time_sheet), class:"btn btn-primary me-3" %>
+            <%= link_to 'Back', user_time_sheets_path(@user), class:"btn btn-primary" %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

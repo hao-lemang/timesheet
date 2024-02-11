@@ -1,6 +1,17 @@
-<h1>Edit Timesheet</h1>
-
-<%= render 'form', time_sheet: @time_sheet %>
-
-<%= link_to 'Back', user_time_sheets_path %>
-
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Edit Timesheet
+        </div>
+        <div class="card-body">
+          <%= render 'form', time_sheet: @time_sheet %>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Back', user_time_sheets_path(@user), class:"btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
