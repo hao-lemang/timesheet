@@ -18,7 +18,7 @@ Get up and running:
 * pre-reqs:  ruby 3.3, bundler, node, yarn (basic rails 7 pre-reqs)
 * `bundle install`
 * `bundle exec rails db:migrate`
-* `bundle exec rails assets:precomile`
+* `bundle exec rails assets:precompile`
 * `bundle exec rails s`
 
 On Linux, some more steps may be required.
