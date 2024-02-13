@@ -14,8 +14,14 @@ Basic sample Timesheet app
 
 * Styled with bootstrap
 
-Get up and runing:
-* pre-reqs:  ruby 3.3, node, yarn (basic rails 7 pre-reqs)
+Get up and running:
+* pre-reqs:  ruby 3.3, bundler, node, yarn (basic rails 7 pre-reqs)
 * `bundle install`
-* `rails db:migrate`
-* `rail s`
+* `bundle exec rails db:migrate`
+* `bundle exec rails assets:precomile`
+* `bundle exec rails s`
+
+On Linux, some more steps may be required.
+For Ubuntu:
+* Install Ruby3.3 (https://phoenixnap.com/kb/install-ruby-ubuntu)
+* Install Yarn (https://classic.yarnpkg.com/en/docs/install#debian-stable)
